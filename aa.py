@@ -1,1 +1,1 @@
-print("hwi")
+print("hwid")
