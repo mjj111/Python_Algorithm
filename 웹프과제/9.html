@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>new Object()로 사용자 객체 만들기</title>
+    <script>
+        // 조회
+        function inquiry() { // function이 실행되면 해당 객체의 balance를 반환합니다.
+            return this.balance;
+        }
+        // 입금
+        function deposit(money) {
+            this.balance += money; // function이 실행되면 해당 객체의 balace에 파라미터로 받은 mmoney를 더합니다.
+        }
+        // 출금
+        function withdraw(money) {
+            this.balance -= money;// function이 실행되면 해당 객체의 balance에 파라미터로 받은 money를 뺍니다.
+        }
+    </script>
+</head>
+
+<body>
+    <h3>new Object()로 사용자 객체 만들기</h3>
+    <hr />
+    <script>
+        // 계좌 객체 만들기
+        var account = new Object(); // account라는 객체를 선언 및 생성합니다. 
+        account.owner = '홍길동';   //account라는 객체의 owner 이란 변수에  '홍길동'값을 부여합니다.
+        account.code = '111';//account라는 객체의 code란 변수에 '111'을 부여합니다.
+        account.balance = 35000; // account라는 객체의 balance란 변수에 35000을 부여합니다.
+        account.inquiry = inquiry; // account라는 객체의 inquiry란 변수에 이전에 선언한 function inquiry를 부여합니다.
+        account.deposit = deposit;  // account라는 객체의 deposit이란 변수에 이전에 선언한 function diposit를 부여합니다.
+        account.withdraw = withdraw;  // account라는 객체의 withdraw란 변수에 이전에 선언한 function withdraw를 부여합니다.
+        document.write('account : ');
+        document.write(account.owner + ', ');
+        document.write(account.code + ', ');
+        document.write(account.balance + '원<br>');
+        account.deposit(10000); // 10000원을 저금하기위해 deposit()메서드를 사용합니다.
+        document.write('10000원 저금 후 잔액은 ' +
+            account.inquiry() + '원<br>');// deposit(10000)메서드를 사용하고 남은 balance를 inquiry()를 통해 조회합니다.
+        account.withdraw(5000); // 5000원 인출을 위해 witdraw()메서드를 사용합니다.
+        document.write('5000원 인출 후 잔액은 ' +
+            account.inquiry() + '원<br>');// withdraw(5000)메서드를 사용하고 남은 balance를 inquiry()를 통해 조회합니다.
+    </script>
+</body>
+
+</html>
