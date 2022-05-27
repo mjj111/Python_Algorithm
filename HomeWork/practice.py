@@ -13,45 +13,46 @@ LibBooks = [] #현재 도서관 도서
 LibBooks.append(tmp1)
 LibBooks.append(tmp2)
 LibBooks.append(tmp3)
-
-
-
-print("안녕하세요. 도서관리 프로그램입니다.")
-print("아래 해당 목록 중 원하는 서비스 번호를 입력해주세요 ")
-print("(1) 회원 등록 ")
-print("(2) 회원 로그인")
-print("(3) 프로그램 종료 ")
-actNum = int(input(" 사용하고자 하는 서비스 번호 : "))
 start = True
+actNum = -33
 while(start):
     while(actNum != 3):
+        print("안녕하세요. 도서관리 프로그램입니다.")
+        print("아래 해당 목록 중 원하는 서비스 번호를 입력해주세요 ")
+        print("(1) 회원 등록 ")
+        print("(2) 회원 로그인")
+        print("(3) 프로그램 종료 ")
+        actNum = int(input(" 사용하고자 하는 서비스 번호 : "))
+        
         if actNum == 1:
             print("회원 등록을 입력하셨습니다.")
             userName = input(" 사용하고자 하는 회원님의 이름을 설정해주세요 : ")
             userAge = int(input(" 회원님의 나이를 입력해주세요 : "))
             userRole = input(" 회원님의 역할(Libralian,Student)을 설정해주세요 : ")
-        if userRole == "Student":
-            p1 = Student(userName,userAge,userRole)
-            p1.get_role()
-            personList.append(p1)
-            print("회원 등록에 성공하였습니다!")
-        if userRole == "Libralian":
-            p1 = Libralian(userName,userAge,userRole)
-            p1.get_role()
-            personList.append(p1)
-            print("회원 등록에 성공하였습니다!")
+            if userRole == "Student":
+                p1 = Student(userName,userAge,userRole)
+                personList.append(p1)
+                nowUser = p1
+                print("회원 등록에 성공하였습니다!")
+            if userRole == "Libralian":
+                p1 = Libralian(userName,userAge,userRole)
+                personList.append(p1)
+                print("회원 등록에 성공하였습니다!")
+            break
+        
         elif actNum == 2:
             print("회원 로그인을 입력하셨습니다.")
-            userName = input(" 사용하고자 하는 회원님의 이름을 설정해주세요 : ")
-            for tmpUser in personList:
-                if tmpUser.get_name() == userName:
-                    nowUser = tmpUser
+            userName = input(" 사용하고자 하는 회원님의 이름을 입력해주세요 : ")
+            if nowUser.get_name == userName:
+                actNum = -33
+                if nowUser.get_role == "Student":
                     print("로그인에 성공하였습니다!")
-                if nowUser.get_role() == "Student":
                     libNum = 0
-                if nowUser.get_role() == "Libralian":
+                elif nowUser.get_role == "Libralian":
+                    print("로그인에 성공하였습니다!")
                     libNum = -1
                 break
+            
         elif actNum == 3:
             print("프로그램을 종료합니다.")
             start = False
@@ -67,18 +68,23 @@ while(start):
         actNum = int(input(" 번호 입력 : "))
         if actNum == 5 :
             print("프로그램을 종료합니다.")
+            libNum = -33
             break
         
         if actNum == 1 :
             print(" (1) My도서대출 내용 조회를 선택하셨습니다. ")
             print("현재 회원님의 대출현황을 조회합니다.")
-            for tmp in nowUser.books:
-                tmp.show_book()
+            if len(nowUser.books) == 0:
+                print("현재 빌린 도서가 없습니다.")
+            else : 
+                for tmp in nowUser.books:
+                    tmp.show_book()
         if actNum == 2 :
             print("(2) 도서관 도서 목록 조회를 선택하셨습니다.")
             print("현재 도서관 내 모든 도서를 조회합니다.")
-            for i in range(len(LibBooks)):
-                LibBooks[i].show_book()
+            for i in range(LibBooks):
+                i.show_book()
+            break
             
         if actNum == 3 :
             print("(3) 도서 대출을 입력하셨습니다.")
@@ -88,6 +94,7 @@ while(start):
                     nowUser.borrow_book(i,i.get_available())
                     i.brrow_book2() # 해당 책을 False로 바꿉니다. 
                     print("도서 대출에 성공했습니다!")
+            break
         if actNum == 4 : 
             print("(4) 도서 반납을 입력하셨습니다.")
             bookName = input("원하시는 책의 제목을 입력해주세요")
@@ -96,10 +103,13 @@ while(start):
                     nowUser.return_book(i)
                     i.return_book2() #해당 책을 True로 바꿉니다.
                     print("도서 반납에 성공했습니다!")
+            break
+        
         if actNum == 5 :
             print("(5) 프로그램 뒤로가기을 선택하셨습니다.")
             print(" 뒤로 이동합니다.")
             actNum = 0
+            break
         
         
     # 사서일 경우 
@@ -112,6 +122,7 @@ while(start):
         if actNum == 3:
             print("(3) 프로그램 뒤로가기를 선택하셨습니다.")
             print("뒤로 이동합니다.")
+            libNum = -33
             break
         
         if actNum == 1 :
@@ -126,9 +137,11 @@ while(start):
             if bookCategory == "PaperBook":
                 newBook = EBook(bookName,bookAuthor,bookCategory)
                 nowUser.save_book(LibBooks,newBook)
+            break
         
         if actNum == 2 :
             print("(2) 도서관 도서 목록 조회를 선택하셨습니다.")
             print("현재 도서관 내 모든 도서를 조회합니다.")
             for i in range(len(LibBooks)):
                 LibBooks[i].show_book()
+            break

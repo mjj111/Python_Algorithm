@@ -4,8 +4,11 @@ class Person: #기본으로 이름, 나이, 빌린 책의 리스트를 갖습니
         self.age = age
         self.books = [] #개인 도서 대출 리스트 
         
+    def get_role(self):
+        return [str(self.role)]
+    
     def get_name(self):
-        return self.name
+        return [str(self.name)]
         
     # 책 대출 메서드 / 책이 대출이 가능할 경우 대출리스트에 추가하고 True를 반환해줍니다. 
     def borrow_book(self,book,available):  
@@ -32,11 +35,6 @@ class Student(Person): #Person 상속
         super().__init__(name, age)
         self.role = role
 
-    def get_role(self):
-        print(f'본인의 역할은 {self.role}입니다.')
-    
-    def get_name(self):
-        return self.name
 
 
 
@@ -46,11 +44,6 @@ class Libralian(Person):
         super().__init__(name, age)
         self.role = role
 
-    def get_role(self):
-        print(f'본인의 역할은 {self.role}입니다.')
-    
-    def get_name(self):
-        return self.name
 
     #도서 저장메서드 /#lib_books리스트에 book을 저장해줍니다.
     def save_book(lib_books,book):
