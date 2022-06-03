@@ -36,22 +36,18 @@
 		<div id="map" style="width: 100%; height: 100vh;"></div>
 		<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=bab6987d5c505f102470c5cd9120b9e0"></script>
 		<script>
-			const url =
-			'https://api.odcloud.kr/api/15077756/v1/vaccine-stat?page=1&perPage=10&serviceKey=5fz%2BBOv9D7KoIg%2B4l25Yb9pjy7px3LyEzavdI6ghHtI%2BGPxVWlWNtzljnc0oEDAqm0EIKcG2wduz2wsl8BLoDw%3D%3D';
-			// 인포윈도우 표시 열기
-			
-			var mapContainer = document.getElementById("map"); // 지도를 표시할 div
+            var mapContainer = document.getElementById("map"); // 지도를 표시할 div
 			var mapOption = {
 			center: new kakao.maps.LatLng(35.13417, 129.11397), // 지도의 중심좌표
 			level: 7, // 지도의 확대 레벨
 			};
-
 			var map = new kakao.maps.Map(mapContainer, mapOption);
             
             var marker = new kakao.maps.Marker({
             map: map, 
             position: new kakao.maps.LatLng(35.13417, 129.11397)
             });
+
             var content = '<div class="Div">' +
 				'<div class="bar">' +
 				/*centers[i]["Name"]이름*/'부모사랑노인복지센터' +
@@ -64,11 +60,13 @@
 				/*centers[i]["type"]시설종류 */ '노인복지센터' +
 				'</div>' +
 				'</div>';
+
             var overlay = new kakao.maps.CustomOverlay({
             content: content,
             map: map,
             position: marker.getPosition()       
             });
+
             overlay.setMap(null);
 
             kakao.maps.event.addListener(marker, "mouseover", function() {
@@ -77,8 +75,7 @@
             overlay.setMap(null);});
 
 
-			    
-			
+		
 		</script>
 	</body>
 </html>

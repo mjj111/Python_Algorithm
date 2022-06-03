@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>API 연습</title>
+</head>
+
+<body>
+    <h1>ajax를 통한 api와 소통하기  </h1>
+    <input id="foodName" value="" type="text">
+    <button id="search">검색</button>
+
+    <p></p>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $("#search").click(function () {
+                var exurl = 'http://apis.data.go.kr/1471000/FoodNtrIrdntInfoService1/getFoodNtrItdntList1'; /*URL*/
+                var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'IBqx4TwSMeJC70Y4WRvQHoKGVqLDifv0%2F2qGaKK0VlPx7Gh42nrfXeAQz7%2F3%2BtV%2Bd34PtzYvmIPOy%2FFmWRFUDw%3D%3D'; /*Service Key*/
+                queryParams += '&' + encodeURIComponent('type') + '=' + encodeURIComponent('json'); /*Json 형태로 받기*/
+                var val1 = $("#foodName").val();
+                queryParams += '&' + encodeURIComponent('desc_kor') + '=' + encodeURIComponent(val1); /*음식검색*/
+                queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+                $.ajax({
+                    method: "GET",
+                    url: exurl + queryParams,
+                })
+                    .done(function (msg) {
+                        $("p").empty();
+                        console.log(msg.body.items.length)
+                        for(var i = 0; i <msg.body.items.length; i++){
+                            $("p").append("<li>" + msg.body.items[i].DESC_KOR + "</li>");
+                        }
+                        //console.log(msg.documents[0].title);
+                        //console.log(msg.documents[0].thumbnail);
+                        //$("p").append("<img src='" + msg.documents[0].thumbnail + "'/>");
+                    });
+            });
+        });
+    </script>
+</body>
+
+</html>
