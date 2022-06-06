@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>this 활용</title>
+    <script>
+        // 해당 change funcion은 obj를  받을 때 해당 객체의 스타일을 바꿉니다.
+        function change(obj, size, color) {
+            obj.style.color = color;
+            obj.style.fontSize = size;
+        }
+    </script>
+</head>
+
+<body>
+    <h3>this 활용</h3>
+    <hr>
+    <button onclick="change(this, '30px', 'red')">버튼</button> 
+    <!--해당 태그자체를 this를 활용하여 객체로 넘긴 뒤 function change를 적용하게 됩니다.-->
+    <button onclick="change(this, '30px', 'blue')">버튼</button>
+    <div onclick="change(this, '25px', 'orange')">
+        여기 클릭하면 크기와 색 변경
+    </div>
+</body>
+
+</html>

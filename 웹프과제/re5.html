@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head id="myHead">
+    <title>document 객체의 주요 프로퍼티</title>
+    <script>
+        var text = '문서 로딩 중일 때 readyState = ' + document.readyState + '\n';
+        // readyState를 사용하여 보여줍니다
+    </script>
+</head>
+
+<body style="background-color: yellow; color: blue; direction: rtl;" onload="printProperties()">
+    <h3>document의 주요 프로퍼티</h3>
+    <hr>
+    <a href="http://www.naver.com">네이버 홈페이지</a> 
+    <div>이곳은 div 영역입니다.</div>
+    <input id="input" type="text" value="여기 포커스가 있습니다" />
+    <script>
+        // 문서가 완전히 로드(출력)되었을 때, 현재 document의 프로퍼티 출력합니다.
+        function printProperties() {
+            document.getElementById('input').focus(); // <input> 태그에 포커스를 줍니다. 
+            //해당 사이트로 처음 들어갔을 시 id 값이 input에 해당하는 태그에 포커스가 주어져 있음을 확인할 수 있습니다.
+            text += '1. location =' + document.location + '\n'; // document의 위치를 더합니다.
+            text += '2. URL =' + document.URL + '\n';//document의 url을 더합니다.
+            text += '3. title =' + document.title + '\n';//document의 title 을 더합니다.
+            text += '4. head의 id =' + document.head.id + '\n';//document의 head영역의 id 값을 더합니다.
+            text += '5. body color =' + document.body.style.color + '\n'; //document의 body에 적용된 스타일 색을 더합니다.
+            text += '6. domain =' + document.domain + '\n';// document의 domain을 더합니다.
+            text += '7. lastModified =' + document.lastModified + '\n'; // document의 가장 최근 수정된 날짜를 더합니다.
+            text += '8. defaultView = ' + document.defaultView + '\n';// document의 default로 주어진 view를 더합니다.
+            text += '9. 문서의 로드 완료 후 readyState = ' + document.readyState + '\n'; // 문서 완료된 상태를 더합니다.
+            text += '10. referrer = ' + document.referrer + '\n'; //document의 referrer을 더합니다.
+            text += '11. activeElement = ' + document.activeElement.value + '\n'; // document의 activeElement해당 Value들을 더합니다.
+            text += '12. documentElement의 태그 이름 = ' + document.documentElement.tagName + '\n'; // document의 documentElement에 있는 태그명을 더합니다.
+            alert(text); // 위에 코드를 통해 추가된 text값을 alert을 통해 출력합니다. 
+        }
+    </script>
+</body>
+
+</html>

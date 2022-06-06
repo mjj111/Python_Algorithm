@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML 문서 작성기 만들기</title>
+    <script>
+        var win = null;
+        // onclick="showHTML()"으로 클릭이 될 시에 작동하는 function입니다.
+        function showHTML() {
+            if (win == null || win.closed) //win이 null값 혹은 win.closed일 경우에 새롭게 windows.open을 통해 win에 할당합니다. 
+                win = window.open('', 'outWin', 'width=300,height=200');
+            var textArea = document.getElementById('srcText');// 여기서 textArea는 srcText id값을 가진 태그의 요소를 가져와 값을 할당 받습니다.
+            win.document.open(); // 해당 win을 열고 
+            win.document.write(textArea.value);// 위에서 할당한 textArea 값을 부여합니다.
+            win.document.close();// win.document를 닫습니다.
+        }
+    </script>
+</head>
+
+<body>
+    <h3>HTML 문서 작성기 만들기</h3>
+    <hr>
+    <p>HTML 문서를 작성하고 버튼을 클릭해 보세요.</p>
+    <textarea id="srcText" rows="10" cols="30"></textarea>
+    <br><br>
+    <button onclick="showHTML()">HTML 문서 출력하기</button>
+</body>
+
+</html>

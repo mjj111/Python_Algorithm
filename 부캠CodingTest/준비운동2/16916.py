@@ -27,7 +27,6 @@ def kmp(word, find):
                 j += 1
     return result
 
-
 table = get_table(S)
 result = kmp(P, S)
 print(1 if result else 0)

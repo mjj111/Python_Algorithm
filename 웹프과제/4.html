@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Array 객체의 메소드 활용</title>
+    <script>
+        function pr(msg, arr) { // pr이라는 function을 선언하여 파라미터값을 아래와 같이 출력하도록 합니다.
+            document.write(msg + arr.toString());
+            document.write('<br>');
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Array 객체의 메소드 활용</h3>
+    <hr />
+    <script>
+        var a = new Array('1', '2', '3');
+        var b = new Array('4');
+        var c;
+        pr('배열 a = ', a);
+        pr('배열 b = ', b);
+        document.write('<hr>');
+        c = a.concat(b); // c는 a와 b를 연결한 새 배열입니다. concat함수를 사용하여 a와 b를 연결한 값을 c에 부여합니다.
+        pr('c = a.concat(b)후 c = ', c);
+        pr('c = a.concat(b)후 a = ', a); // 그러나 a.concat(b)는 새로운 값을 만들지만 a에 적용하여 a값을 바꾸진 않습니다.
+        c = a.join('##'); // c는 배열 a를 연결한 문자열입니다. // 각 요소들 마다 사이에 ##을 추가한 문자열을 c에 부여합니다.
+        pr('c = a.join(\'##\') 후 c = ', c); 
+        pr('c = a.join(\'##\') 후 a = ', a);// 그러나 a.join('##')은 새로운 값을 만들지만 a에 적용하여 a값을 바꾸진 않습니다.
+        c = a.reverse(); // a 배열들을 반대로 정렬합니다. 
+        pr('c = a.reverse() 후 c = ', c); // c는 a의 반대 정렬된 값을 가집니다.
+        pr('c = a.reverse() 후 a = ', a);// a또한 a.reverse()를 통해 만들어진 값을 자신이 갖습니다.
+        c = a.slice(1, 2); // c는 a에 해당하는 인덱스 1이상 2미만의 값들을 가지게 됩니다.
+        pr('c = a.slice(1, 2) 후 c = ', c); 
+        pr('c = a.slice(1, 2) 후 a = ', a); // 그러나a.slice(1, 2)은 새로운 값을 만들지만 a에 적용하여 a값을 바꾸진 않습니다.
+        c = a.sort(); // a.sort()는 해당 안에 요소들을 오름차순으로 정렬합니다. 
+        pr('c = a.sort() 후 c = ', c); // c는 a의 오름차순 정렬된 값을 가집니다.
+        pr('c = a.sort() 후 a = ', a);// // a또한 a.sort()를 통해 만들어진 값을 자신이 갖습니다.
+    </script>
+</body>
+
+</html>
