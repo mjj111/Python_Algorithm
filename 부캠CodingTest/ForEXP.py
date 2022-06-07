@@ -1,20 +1,33 @@
-import sys
+from collections import deque
 
-input = sys.stdin.readline
-n = int(input())
-num = list(map(int,input().split()))
-op = list(map(int,input().split())) # 연산식 +, -, *, //
 
-maximum =-1e9
-minimum =1e9
+def dfs(v):
+    print(v,end = ' ')
+    visit[v] = 1
+    for i in range(1,n+1):
+        if visit[i] == 0 and s[v][i]==1:
+            dfs(i)
 
-def dfs(depth,total,plus,minus,multiply,divide):
-    global maximum,minimum
-    if depth == n:
-        maximum = max(maximum,total)
-        minimum = min(minimum,total)
-        return
+def bfs(v):
+    queue = deque()
+    queue.append(v)
+    visit[v] = 0
+    while(queue):
+        v = queue.popleft()
+        print(v, end =' ')
+        for i in range(1,n+1):
+            if visit[i] == 1 and s[v][i] == 1:
+                queue.append(i)
+                visit[i] = 0
+
+n, m, v = map(int, input().split())
+s = [[0] * (n + 1) for i in range(n + 1)]
+visit = [0 for i in range(n + 1)]
+for i in range(m):
+    x, y = map(int, input().split())
+    s[x][y] = 1
+    s[y][x] = 1
     
-    if plus : 
-        dfs(depth+1,total + num[depth],plus-1,minus,multiply,divide)
-    
+dfs(v)
+print()
+bfs(v)
