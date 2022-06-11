@@ -19,12 +19,13 @@
     <script>
         $(document).ready(function () {
             $("#search").click(function () {
-                "http://api.vworld.kr/req/data?service=data&version=2.0&request=getfeature&key=483E0418-2F46-3223-80A1-F66D16A24685&format=json&errorformat=json&size=100&page=1&data=LT_P_UTISCCTV&geomfilter=BOX({minY}%2C{minX}%2C{maxY}%2C{maxX})&columns=locate%2Ccctvname%2Cag_geom&geometry=true&attribute=true&crs=epsg%3A4326&domain=api.vworld.kr"
-                var exurl = 'http://apis.data.go.kr/1471000/FoodNtrIrdntInfoService1/getFoodNtrItdntList1'; /*URL*/
-                var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'IBqx4TwSMeJC70Y4WRvQHoKGVqLDifv0%2F2qGaKK0VlPx7Gh42nrfXeAQz7%2F3%2BtV%2Bd34PtzYvmIPOy%2FFmWRFUDw%3D%3D'; /*Service Key*/
-                queryParams += '&' + encodeURIComponent('type') + '=' + encodeURIComponent('json'); /*Json 형태로 받기*/
+                var exurl = 'http://apis.data.go.kr/6260000/SocialWelfareCenterProgramService/getProgramInfo'; /*URL*/
+                var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'IBqx4TwSMeJC70Y4WRvQHoKGVqLDifv0%2F2qGaKK0VlPx7Gh42nrfXeAQz7%2F3%2BtV%2Bd34PtzYvmIPOy%2FFmWRFUDw%3D%3D'; /*Service Key*/ 	
+                queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
+                queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+                queryParams += '&' + encodeURIComponent('resultType') + '=' + encodeURIComponent('json'); /**/
                 var val1 = $("#foodName").val();
-                queryParams += '&' + encodeURIComponent('desc_kor') + '=' + encodeURIComponent(val1); /*음식검색*/
+                //queryParams += '&' + encodeURIComponent('desc_kor') + '=' + encodeURIComponent(val1); /*음식검색*/
                 queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
                 $.ajax({
                     method: "GET",
@@ -32,9 +33,9 @@
                 })
                     .done(function (msg) {
                         $("p").empty();
-                        console.log(msg.body.items.length)
-                        for(var i = 0; i <msg.body.items.length; i++){
-                            $("p").append("<li>" + msg.body.items[i].DESC_KOR + "</li>");
+                        console.log(msg.getProgramInfo.item)
+                        for(var i = 0; i <msg.getProgramInfo.item.length; i++){
+                            $("p").append("<li>" + msg.getProgramInfo.item[i].center_nm + "</li>");
                         }
                         
                     });

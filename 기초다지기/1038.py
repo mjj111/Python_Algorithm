@@ -1,37 +1,21 @@
-import sys
-sys.setrecursionlimit(1000000)
-global num
-num = [9,8,7,6,5,4,3,2,1,0]
- 
-digit = 2
-temp = [0 for i in range(2)]
-global ans
-ans =[]
-i=0
-def dfs(arr,digit,depth):
-    global num
-    global ans
-    if depth == digit:
-        t=0
-        while digit>0:
-            t+=arr[len(arr)-digit]*10**(digit-1)
-            digit-=1
-        ans.append(t)
-        return
-    for i in range(num.index(arr[depth-1])+1,10-(digit-depth)+1):
-        arr[depth]=num[i]
-        dfs(arr.copy(),digit,depth+1)
- 
-n = int(input())
-if n >= 1023:
-    print(-1)
-else:
-    for digit in range(1,11):
-        arr = [0 for i in range(digit)]
-        for i in range(10-digit+1):
-            arr[0]=num[i]
-            dfs(arr,digit,1)
-        if len(ans) >= n+1:
-            break
-    ans.sort()
-    print(ans[n])
+N = int(input())
+answer = -1
+def dfs(k, nums):
+    global answer
+    if len(nums) == k:
+            answer += 1
+            if answer == N:
+                print(nums)
+                exit(0)
+    else:
+        if nums == '':
+            for j in range(k-1, 10): #맨 앞자리수는 아무거나 가능.
+                dfs(k, str(j))
+        else:
+            for j in range(k-len(nums)-1, int(nums[-1])): 
+                dfs(k, nums+str(j))
+
+for i in range(1, 11): #0부터 9876543210의 경우 까지, 총 10자리수일때까지만 해당 수가 가능하다.
+    dfs(i, '')
+
+print('-1')
