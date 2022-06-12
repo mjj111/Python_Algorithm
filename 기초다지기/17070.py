@@ -3,12 +3,11 @@ import sys
 input  = sys.stdin.readline
 
 n = int(input())
-# G = [list(map(int,input().split())) for _ in range(n)]
 
 G = [[0 for _ in range(n)]]
 for _ in range(n):
     G.append(list(map(int,input().split())))
-dp = [[[0,0,0] for _ in range(n)] for _ in range(n+1)] # 가로 대각선 세로
+dp = [[[0,0,0] for _ in range(n)] for _ in range(n+1)] # dp 가로 대각선 세로 = 경우의 수
 
 dp[1][1] = [1,0,0]
 
