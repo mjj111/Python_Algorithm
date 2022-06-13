@@ -15,8 +15,13 @@ edge.sort(key=lambda x: x[0])
 
 parent = list(range(V + 1))
 
+def find(a): #부모찾기
+    if a == parent[a]:
+        return a
+    parent[a] = find(parent[a])  # 경로 압축
+    return parent[a]
 
-def union(a, b):
+def union(a, b): #a,b 연결하기
     a = find(a)
     b = find(b)
 
@@ -24,14 +29,6 @@ def union(a, b):
         parent[a] = b
     else:
         parent[b] = a
-
-
-def find(a):
-    if a == parent[a]:
-        return a
-    parent[a] = find(parent[a])  # 경로 압축
-    return parent[a]
-
 
 sum = 0
 for w, s, e in edge:
