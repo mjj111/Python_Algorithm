@@ -1,3 +1,8 @@
+# 플러그를 꼽을 건데 빈공간이 있을 때까지 순서대로 계속 넣을 것이다.
+# 남은 녀석들 중 이미 플러그에 있는 녀석이 있다면 그 플러그는 빼지 않는다.
+# 남은 녀석들 중 현재 플러그에 없다면 
+# 현재 플러그씩 찾아서 만나게될 녀석들의 인덱스 중 가장 멀리있는 플러그를 뺀다
+# //현재 플러그의 남은녀석들의 갯수가 최대라면x 이런식으로 하면 안된다.
 import sys
 input = sys.stdin.readline
 N, K = map(int, input().split())
@@ -30,5 +35,4 @@ for i in range(K):
             temp = plug
     plugs[plugs.index(temp)] = use[i]
     result += 1
-
 print(result)
