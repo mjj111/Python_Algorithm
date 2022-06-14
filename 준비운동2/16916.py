@@ -12,7 +12,6 @@ def get_table(x):
             arr[i] = j
     return arr
 
-
 def kmp(word, find):
     result = 0
     j = 0

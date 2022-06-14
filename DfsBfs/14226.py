@@ -4,7 +4,7 @@ n = int(input())
 q = deque()
 q.append((1, 0))  #화면, 클립보드
 visited = dict()
-visited[(1, 0)] = 0
+visited[(1, 0)] = 0 #화면, 클립보드 = 작동 시간
 
 while q:
     s, c = q.popleft()

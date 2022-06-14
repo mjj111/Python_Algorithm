@@ -11,7 +11,7 @@ for i in range(m): # m 만큼 비교연산한다.
     a, b = map(int,input().split())
     in_dgree[b] +=1  # a가 b보다 더 앞에 있어야하기에 b의 우선순위 +=1
     graph[a].append(b)
-    
+
 queue = deque()
 ans = []
 

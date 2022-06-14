@@ -20,7 +20,8 @@ def bfs(n):
                     
 n, k = map(int, input().split())
 visited = [[-1, 0] for _ in range(100001)] 
-
+#방문여부, 시간, 경우의 수 저장 해야함 
+#visited[i] = [a,b] //i에 도달하는 a = 시간 b = 경우의 수 // a가 -1로 초기화되어 visited확인이 가능 
 bfs(n)
 print(visited[k][0])
 print(visited[k][1])

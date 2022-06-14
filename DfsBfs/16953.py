@@ -1,9 +1,9 @@
 from collections import deque
  
-A, B = map(int, input().split())
+A, B = map(int, input().split()) # 가장 중요한 점은 B 보다 클 경우 더 이상의 연산이 필요하지 않다는 것이다
  
 q = deque()
-q.append((A, 1))
+q.append([A, 1]) #현재수, 실행 수
 s =1 
  
 while q:
