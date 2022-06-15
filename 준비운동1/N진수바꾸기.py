@@ -9,3 +9,4 @@ def solution(n, q):
     # 역순인 진수를 뒤집어 줘야 원래 변환 하고자하는 base가 출력
     
 print(solution(45, 3))
+print(int('0012',3)) # 3진법을 10진법으로 전환 
