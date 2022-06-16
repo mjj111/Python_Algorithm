@@ -6,10 +6,7 @@ def solution(s):
         stack = []
         count = 0
         for s in string:
-            
             if s == '0':
-                
-
                 if stack[-2:] == ['1', '1']:
                     count += 1
                     stack.pop()
