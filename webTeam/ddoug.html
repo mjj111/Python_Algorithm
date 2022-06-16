@@ -1,11 +1,255 @@
 <!DOCTYPE html>
 <html>
     <head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Search form</title>
         <style>
+          .detailgraph {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding: 20px;
+        }
+
+        /* Bar Graph Horizontal */
+        .bar-graph .year {
+            -webkit-animation: fade-in-text 2.2s 0.1s forwards;
+            -moz-animation: fade-in-text 2.2s 0.1s forwards;
+            animation: fade-in-text 2.2s 0.1s forwards;
+            opacity: 0;
+        }
+
+        .bar-graph-horizontal {
+            max-width: 500px;
+        }
+
+        .bar-graph-horizontal>div {
+            float: left;
+            margin-bottom: 2px;
+            width: 100%;
+        }
+
+        .bar-graph-horizontal .year {
+            float: left;
+            margin-top: 2px;
+            width: 500px;
+            position: relative;
+            left: 25%;
+        }
+
+        .bar-graph-horizontal .bar {
+            border-radius: 3px;
+            height: 32px;                     
+            float: left;
+            overflow: hidden;
+            position: relative;
+            width: 0;
+        }
+
+        .bar-graph-one .bar::after {
+            -webkit-animation: fade-in-text 2.2s 0.1s forwards;
+            -moz-animation: fade-in-text 2.2s 0.1s forwards;
+            animation: fade-in-text 2.2s 0.1s forwards;
+            color: #fff;
+            content: attr(data-percentage);
+            font-weight: 700;
+            position: absolute;
+            right: 16px;
+            top: 17px;
+        }
+
+        .bar-graph-one .bar-one .bar {
+            background-color: #e3f800;
+            -webkit-animation: show-bar-one 1.2s 0.1s forwards;
+            -moz-animation: show-bar-one 1.2s 0.1s forwards;
+            animation: show-bar-one 1.2s 0.1s forwards;
+            position: relative;
+            left: 25%;
+        }
+
+        .bar-graph-one .bar-two .bar {
+            background-color:
+                #da8217;
+            -webkit-animation: show-bar-two 1.2s 0.2s forwards;
+            -moz-animation: show-bar-two 1.2s 0.2s forwards;
+            animation: show-bar-two 1.2s 0.2s forwards;
+            position: relative;
+            left: 25%;
+        }
+
+        .bar-graph-one .bar-three .bar {
+            background-color: #a18939;
+            -webkit-animation: show-bar-three 1.2s 0.3s forwards;
+            -moz-animation: show-bar-three 1.2s 0.3s forwards;
+            animation: show-bar-three 1.2s 0.3s forwards;
+            position: relative;
+            left: 25%;
+        }
+
+        .bar-graph-one .bar-four .bar {
+            background-color: #b6c47e;
+            -webkit-animation: show-bar-four 1.2s 0.4s forwards;
+            -moz-animation: show-bar-four 1.2s 0.4s forwards;
+            animation: show-bar-four 1.2s 0.4s forwards;
+            position: relative;
+            left: 25%;
+        }
+
+        .bar-graph-one .bar-five .bar {
+            background-color: #f9bd0b;
+            -webkit-animation: show-bar-five 1.2s 0.4s forwards;
+            -moz-animation: show-bar-five 1.2s 0.4s forwards;
+            animation: show-bar-five 1.2s 0.4s forwards;
+            position: relative;
+            left: 25%;
+        }
+        .bar-graph-one .bar-six .bar {
+            background-color: #839f69;
+            -webkit-animation: show-bar-six 1.2s 0.4s forwards;
+            -moz-animation: show-bar-six 1.2s 0.4s forwards;
+            animation: show-bar-six 1.2s 0.4s forwards;
+            position: relative;
+            left: 25%;
+        }
+        .bar-graph-one .bar-seven .bar {
+            background-color: #715707;
+            -webkit-animation: show-bar-seven 1.2s 0.4s forwards;
+            -moz-animation: show-bar-seven 1.2s 0.4s forwards;
+            animation: show-bar-seven 1.2s 0.4s forwards;
+            position: relative;
+            left: 25%;
+        }
+        .bar-graph-one .bar-eight .bar {
+            background-color: #d2c8a7;
+            -webkit-animation: show-bar-eight 1.2s 0.4s forwards;
+            -moz-animation: show-bar-eight 1.2s 0.4s forwards;
+            animation: show-bar-eight 1.2s 0.4s forwards;
+            position: relative;
+            left: 25%;
+        }
+        .bar-graph-one .bar-nine .bar {
+            background-color: #644b01;
+            -webkit-animation: show-bar-nine 1.2s 0.4s forwards;
+            -moz-animation: show-bar-nine 1.2s 0.4s forwards;
+            animation: show-bar-nine 1.2s 0.4s forwards;
+            position: relative;
+            left: 25%;
+        }
+        .bar-graph-one .bar-ten .bar {
+            background-color: #607124;
+            -webkit-animation: show-bar-ten 1.2s 0.4s forwards;
+            -moz-animation: show-bar-ten 1.2s 0.4s forwards;
+            animation: show-bar-ten 1.2s 0.4s forwards;
+            position: relative;
+            left: 25%;
+        }
+
+        /* Bar Graph Horizontal Animations */
+        @keyframes show-bar-one {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+
+        @keyframes show-bar-two {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes show-bar-three {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+
+        @keyframes show-bar-four {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+        @keyframes show-bar-five {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+        @keyframes show-bar-six {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+        @keyframes show-bar-seven {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+        @keyframes show-bar-eight {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+        @keyframes show-bar-nine {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+        @keyframes show-bar-ten {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+
+        @keyframes fade-in-text {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
             @import url(https://fonts.googleapis.com/css?family=Open+Sans);
             @font-face {
                   font-family: '국립박물관문화재단클래식B';
@@ -373,15 +617,16 @@
           <cite>사단법인 대한영양사협회</cite>
         </div>
                
-        <div id="div-element" class='centerview'><!--검색에서 나온 음식들을(리스트형식) 클릭 시 해당 음식의 상세정보(리스트형식)를 표시할 div태그-->
-         음식 영양성분 표시 
+        <div id="div-element" class='centerview detailgraph'><!--style="text-align:center;"-->
+          <!--검색에서 나온 음식들을(리스트형식) 클릭 시 해당 음식의 상세정보(리스트형식)를 표시할 div태그-->
+          <h2 style="margin: 1px; text-align:center;">음식 영양성분 표시</h2>
         </div>
 
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="leftbutton" viewBox="0 0 16 16"><!--뒤로 가기 버튼-->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="leftbutton" viewBox="0 0 16 16" onclick="location.href='homepage.html'"><!--뒤로 가기 버튼-->
           <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
         </svg>
 
-        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="rightbutton" viewBox="0 0 16 16"><!--버튼-->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="rightbutton" viewBox="0 0 16 16" onclick="location.href='exer.html'><!--버튼-->
           <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
         </svg>
         <script src="https://code.jquery.com/jquery-3.4.1.js"
@@ -390,10 +635,20 @@
             function follow(DESCKOR) {//생성된 음식 리스트를 클릭 시 실행되는 함수
                 $("#div-element").empty();//먼저 음식의 상세정보를 갱신해서 보여주기 위해 상세정보 창을 비운다.
                 var el = document.getElementById("div-element");// 변수 el에 상세정보를 표시할 창을 id로 가져온다.
-                el.innerHTML = DESCKOR.DESC_KOR + '<br>' + "1회제공량 (g): " + DESCKOR.SERVING_WT//상세정보 표시태그에 다음과 같은 상세정보를 .innerHTML을 이용해 넣어준다. 
+                el.innerHTML = '<h2 style="margin: 1px; text-align:center;">' + DESCKOR.DESC_KOR + '</h2>' + '<section class="bar-graph bar-graph-horizontal bar-graph-one">' + '<div class="bar-one">' + '<span class="year">1회제공량(g)</span>' + '<div class="bar" data-percentage=' + DESCKOR.SERVING_WT + '>' + '</div>' + '</div>'
+                + '<div class="bar-two">' + '<span class="year">열량(kcal)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT1 + '>' + '</div>' + '</div>'
+                + '<div class="bar-three">' + '<span class="year">탄수화물(g)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT2 + '>' + '</div>' + '</div>'
+                + '<div class="bar-four">' + '<span class="year">단백질(g)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT3 + '>' + '</div>' + '</div>'
+                + '<div class="bar-five">' + '<span class="year">지방(g)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT4 + '>' + '</div>' + '</div>'
+                + '<div class="bar-six">' + '<span class="year">당류(g)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT5 + '>' + '</div>' + '</div>'
+                + '<div class="bar-seven">' + '<span class="year">나트륨(mg) </span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT6 + '>' + '</div>' + '</div>'
+                + '<div class="bar-eight">' + '<span class="year">콜레스테롤(mg)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT7 + '>' + '</div>' + '</div>'
+                + '<div class="bar-nine">' + '<span class="year">포화지방산(g)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT8 + '>' + '</div>' + '</div>'
+                + '<div class="bar-ten">' + '<span class="year">트랜스지방산(g)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT9 + '>' + '</div>' + '</div>' + '</section>';
+                /*DESCKOR.DESC_KOR + '<br>' + "1회제공량 (g): " + DESCKOR.SERVING_WT//상세정보 표시태그에 다음과 같은 상세정보를 .innerHTML을 이용해 넣어준다. 
                 + '<br>' + "열량 (kcal): " + DESCKOR.NUTR_CONT1 + '<br>' + "탄수화물 (g): " + DESCKOR.NUTR_CONT2 + '<br>' + "단백질 (g) " + DESCKOR.NUTR_CONT3
                 + '<br>' + "지방 (g): " + DESCKOR.NUTR_CONT4 + '<br>' + "당류 (g): " + DESCKOR.NUTR_CONT5 + '<br>' + "나트륨 (mg): " + DESCKOR.NUTR_CONT6 + '<br>' + "콜레스테롤 (mg): " + DESCKOR.NUTR_CONT7 
-                + '<br>' + "포화지방산 (g): " + DESCKOR.NUTR_CONT8 + '<br>' + "트랜스지방산 (g): "  + DESCKOR.NUTR_CONT9;
+                + '<br>' + "포화지방산 (g): " + DESCKOR.NUTR_CONT8 + '<br>' + "트랜스지방산 (g): "  + DESCKOR.NUTR_CONT9;*/
             }
             $(document).ready(function () {//dom트리가 모두 형성된 후 실행되는 함수->검색 기능 구현
                 $("#search").click(function () {//검색 버튼을 id값(search)으로 가져오고 해당 버튼이 눌러졌을 때 함수가 실행되게 함(검색창의 값을 id로 가져와 읽고 해당 값에 해당하는 내용(음식)을 오픈 API에서 가져옴)
@@ -403,7 +658,8 @@
                     var val1 = $("#foodName").val();//검색창에 입력된 값 읽기
                     queryParams += '&' + encodeURIComponent('desc_kor') + '=' + encodeURIComponent(val1); /*음식검색*/
                     queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
-                    
+                    queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('100');
+
                     $.ajax({//ajax로 비동식으로 작동하게 한다.
                         method: "GET",
                         url: exurl + queryParams,
@@ -427,4 +683,143 @@
         </script>
         
     </body>
+	<script>
+		$( document ).ready(function() {//우측 하단의 할아버지 그림의 움직임효과를 주는 함수
+			//Variables
+			var animationTime = 1.2;
+			
+			//Head Animation
+			var tlHeadY = new TimelineMax({repeat:-1});
+			tlHeadY.to('#head', animationTime / 4, {y:'-=10'})
+			.to('#head', animationTime / 4, {y:'+=10'});
+			
+			var tlHeadRot = new TimelineMax({repeat:-1});
+			tlHeadRot.set('#head', {transformOrigin:'100% 10%'})
+			.to('#head', animationTime / 2, {rotation:'-=3'})
+			.to('#head', animationTime / 2, {rotation:'+=3'});
+			
+			//Eyebrow Animation
+			var tlEyebrows = new TimelineMax({repeat:-1});
+			tlEyebrows.to('.eyebrow', animationTime / 4, {y:'-=4'})
+			.to('.eyebrow', animationTime / 4, {y:'+=4'});
+			
+			var tlEyebrowL = new TimelineMax({repeat:-1});
+			tlEyebrowL.set('#eyebrow_l', {transformOrigin:'50% 50%'})
+			.to('#eyebrow_l', animationTime / 4, {rotation:'-=5'})
+			.to('#eyebrow_l', animationTime / 4, {rotation:'+=5'});
+			
+			var tlEyebrowR = new TimelineMax({repeat:-1});
+			tlEyebrowR.set('#eyebrow_r', {transformOrigin:'50% 50%'})
+			.to('#eyebrow_r', animationTime / 4, {rotation:'+=5'})
+			.to('#eyebrow_r', animationTime / 4, {rotation:'-=5'});
+			
+			//Body Animation
+			var tlBodyGroup = new TimelineMax({repeat:-1});
+			tlBodyGroup.to('.bodyMovement', animationTime / 4, {y:'-=15'})
+			.to('.bodyMovement', animationTime / 4, {y:'+=15'});
+			
+			
+			var tlBodyRot = new TimelineMax({repeat:-1});
+			tlBodyRot.set('#body', {transformOrigin:'50% 50%'})
+			.to('#body', animationTime / 2, {rotation:'-=5'})
+			.to('#body', animationTime / 2, {rotation:'+=5'});
+			
+			//Left Arm Animation
+			var tlArmLeft = new TimelineMax({repeat:-1});
+			tlArmLeft.set('#arm_l', {transformOrigin:'50% 10%', rotation:5})
+			.to('#arm_l', animationTime / 2, {rotation:-5})
+			.to('#arm_l', animationTime / 2, {rotation:5});
+			
+			//Left Arm bottom Animation
+			var tlArmLeftBottom = new TimelineMax({repeat:-1});
+			tlArmLeftBottom.set('#arm_l_bottom', {transformOrigin:'50% 15%', rotation:15})
+			.to('#arm_l_bottom', animationTime / 2, {rotation:-10})
+			.to('#arm_l_bottom', animationTime / 2, {rotation:15});
+			
+			//Left Arm hand Animation
+			var tlArmLeftHand = new TimelineMax({repeat:-1});
+			tlArmLeftHand.set('#arm_l_hand', {transformOrigin:'50% 20%', rotation:0})
+			.to('#arm_l_hand', animationTime / 4, {rotation:-5})
+			.to('#arm_l_hand', animationTime / 4, {rotation:5})
+			.to('#arm_l_hand', animationTime / 4, {rotation:-5})
+			.to('#arm_l_hand', animationTime / 4, {rotation:0});
+			
+			 //Right Arm Animation
+			var tlArmRight = new TimelineMax({repeat:-1});
+			tlArmRight.set('#arm_r', {transformOrigin:'50% 10%', rotation:-25})
+			.to('#arm_r', animationTime / 2, {rotation:5})
+			.to('#arm_r', animationTime / 2, {rotation:-25});
+			
+			//Right Arm bottom Animation
+			var tlArmRightBottom = new TimelineMax({repeat:-1});
+			tlArmRightBottom.set('#arm_r_bottom', {transformOrigin:'50% 20%', rotation:30})
+			.to('#arm_r_bottom', animationTime / 4, {rotation:40})
+			.to('#arm_r_bottom', animationTime / 4, {rotation:0})
+			.to('#arm_r_bottom', animationTime / 2, {rotation:30});
+			
+			//Right Arm hand Animation
+			var tlArmRightHand = new TimelineMax({repeat:-1});
+			tlArmRightHand.set('#arm_r_hand', {transformOrigin:'50% 20%', rotation:0})
+			.to('#arm_r_hand', animationTime / 2, {rotation:-15})
+			.to('#arm_r_hand', animationTime / 2, {rotation:0});
+			
+			//Left Leg Animation
+			var tlLegLeftRot = new TimelineMax({repeat:-1});
+			tlLegLeftRot.set('#leg_l', {transformOrigin:'50% 10%', rotation:-5})
+			.to('#leg_l', animationTime / 2, {rotation:5})
+			.to('#leg_l', animationTime / 2, {rotation:-5});
+			
+			var tlLegLeftTrans = new TimelineMax({repeat:-1});
+			tlLegLeftTrans.set('#leg_l', {y: 0})
+			.to('#leg_l', animationTime / 4, {y: -25})
+			.to('#leg_l', animationTime / 4, {y: -10})
+			.to('#leg_l', animationTime / 2, {y: 0});
+			
+			//Left Leg Bottom Animation
+			var tlLegLeftBottom = new TimelineMax({repeat:-1});
+			tlLegLeftBottom.set('#leg_l_bottom', {transformOrigin:'50% 10%', rotation:-10})
+			.to('#leg_l_bottom', animationTime / 2, {rotation:0})
+			.to('#leg_l_bottom', animationTime / 2, {rotation:-10});
+			
+			//Left Leg Foot Animation
+			var tlLegLeftFoot = new TimelineMax({repeat:-1});
+			tlLegLeftFoot.set('#foot_l', {transformOrigin:'75% 40%', rotation:15})
+			.to('#foot_l', animationTime / 8, {rotation:-2})
+			.to('#foot_l', animationTime / 8, {rotation:3})
+			.to('#foot_l', animationTime / 4, {rotation:-7})
+			.to('#foot_l', animationTime / 2, {rotation:15});
+			
+			//Right Leg Animation
+			var tlLegRightRot = new TimelineMax({repeat:-1});
+			tlLegRightRot.set('#leg_r', {transformOrigin:'50% 10%', rotation:5})
+			.to('#leg_r', animationTime / 2, {rotation:-5})
+			.to('#leg_r', animationTime / 2, {rotation:5});
+			
+			var tlLegRightTrans = new TimelineMax({repeat:-1});
+			tlLegRightTrans.set('#leg_r', {y: -10})
+			.to('#leg_r', animationTime / 2, {y: 5})
+			.to('#leg_r', animationTime / 4, {y: -25})
+			.to('#leg_r', animationTime / 4, {y: -10});
+			
+			//Right Leg Bottom Animation
+			var tlLegRightBottom = new TimelineMax({repeat:-1});
+			tlLegRightBottom.set('#leg_r_bottom', {transformOrigin:'50% 10%', rotation:0})
+			.to('#leg_r_bottom', animationTime / 2, {rotation:-10})
+			.to('#leg_r_bottom', animationTime / 2, {rotation:0});
+			
+			//Right Leg Foot Animation
+			var tlLegRightFoot = new TimelineMax({repeat:-1});
+			tlLegRightFoot.set('#foot_r', {transformOrigin:'75% 40%', rotation:-7})
+			.to('#foot_r', animationTime / 2, {rotation:15})
+			.to('#foot_r', animationTime / 8, {rotation:-2})
+			.to('#foot_r', animationTime / 8, {rotation:3})
+			.to('#foot_r', animationTime / 4, {rotation:-7});
+			
+			//Shadow Animation
+			var tlShadow = new TimelineMax({repeat:-1});
+			tlShadow.set('#shadow', {transformOrigin:'50% 10%', scaleX:1.26})
+			.to('#shadow', animationTime / 2, {scaleX:1})
+			.to('#shadow', animationTime / 2, {scaleX:1.26});
+		  });
+	</script>
   </html>

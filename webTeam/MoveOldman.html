@@ -8,6 +8,226 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Search form</title>
         <style>
+          .detailgraph {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding: 20px;
+        }
+
+        /* Bar Graph Horizontal */
+        .bar-graph .year {
+            -webkit-animation: fade-in-text 2.2s 0.1s forwards;
+            -moz-animation: fade-in-text 2.2s 0.1s forwards;
+            animation: fade-in-text 2.2s 0.1s forwards;
+            opacity: 0;
+        }
+
+        .bar-graph-horizontal {
+            max-width: 500px;
+        }
+
+        .bar-graph-horizontal>div {
+            float: left;
+            margin-bottom: 2px;
+            width: 100%;
+        }
+
+        .bar-graph-horizontal .year {
+            float: left;
+            margin-top: 2px;
+            width: 500px;
+        }
+
+        .bar-graph-horizontal .bar {
+            border-radius: 3px;
+            height: 32px;                     
+            float: left;
+            overflow: hidden;
+            position: relative;
+            width: 0;
+        }
+
+        .bar-graph-one .bar::after {
+            -webkit-animation: fade-in-text 2.2s 0.1s forwards;
+            -moz-animation: fade-in-text 2.2s 0.1s forwards;
+            animation: fade-in-text 2.2s 0.1s forwards;
+            color: #fff;
+            content: attr(data-percentage);
+            font-weight: 700;
+            position: absolute;
+            right: 16px;
+            top: 17px;
+        }
+
+        .bar-graph-one .bar-one .bar {
+            background-color: #e3f800;
+            -webkit-animation: show-bar-one 1.2s 0.1s forwards;
+            -moz-animation: show-bar-one 1.2s 0.1s forwards;
+            animation: show-bar-one 1.2s 0.1s forwards;
+        }
+
+        .bar-graph-one .bar-two .bar {
+            background-color:
+                #da8217;
+            -webkit-animation: show-bar-two 1.2s 0.2s forwards;
+            -moz-animation: show-bar-two 1.2s 0.2s forwards;
+            animation: show-bar-two 1.2s 0.2s forwards;
+        }
+
+        .bar-graph-one .bar-three .bar {
+            background-color: #a18939;
+            -webkit-animation: show-bar-three 1.2s 0.3s forwards;
+            -moz-animation: show-bar-three 1.2s 0.3s forwards;
+            animation: show-bar-three 1.2s 0.3s forwards;
+        }
+
+        .bar-graph-one .bar-four .bar {
+            background-color: #b6c47e;
+            -webkit-animation: show-bar-four 1.2s 0.4s forwards;
+            -moz-animation: show-bar-four 1.2s 0.4s forwards;
+            animation: show-bar-four 1.2s 0.4s forwards;
+        }
+
+        .bar-graph-one .bar-five .bar {
+            background-color: #f9bd0b;
+            -webkit-animation: show-bar-five 1.2s 0.4s forwards;
+            -moz-animation: show-bar-five 1.2s 0.4s forwards;
+            animation: show-bar-five 1.2s 0.4s forwards;
+        }
+        .bar-graph-one .bar-six .bar {
+            background-color: #839f69;
+            -webkit-animation: show-bar-six 1.2s 0.4s forwards;
+            -moz-animation: show-bar-six 1.2s 0.4s forwards;
+            animation: show-bar-six 1.2s 0.4s forwards;
+        }
+        .bar-graph-one .bar-seven .bar {
+            background-color: #715707;
+            -webkit-animation: show-bar-seven 1.2s 0.4s forwards;
+            -moz-animation: show-bar-seven 1.2s 0.4s forwards;
+            animation: show-bar-seven 1.2s 0.4s forwards;
+        }
+        .bar-graph-one .bar-eight .bar {
+            background-color: #d2c8a7;
+            -webkit-animation: show-bar-eight 1.2s 0.4s forwards;
+            -moz-animation: show-bar-eight 1.2s 0.4s forwards;
+            animation: show-bar-eight 1.2s 0.4s forwards;
+        }
+        .bar-graph-one .bar-nine .bar {
+            background-color: #644b01;
+            -webkit-animation: show-bar-nine 1.2s 0.4s forwards;
+            -moz-animation: show-bar-nine 1.2s 0.4s forwards;
+            animation: show-bar-nine 1.2s 0.4s forwards;
+        }
+        .bar-graph-one .bar-ten .bar {
+            background-color: #607124;
+            -webkit-animation: show-bar-ten 1.2s 0.4s forwards;
+            -moz-animation: show-bar-ten 1.2s 0.4s forwards;
+            animation: show-bar-ten 1.2s 0.4s forwards;
+        }
+
+        /* Bar Graph Horizontal Animations */
+        @keyframes show-bar-one {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+
+        @keyframes show-bar-two {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes show-bar-three {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+
+        @keyframes show-bar-four {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+        @keyframes show-bar-five {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+        @keyframes show-bar-six {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+        @keyframes show-bar-seven {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+        @keyframes show-bar-eight {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+        @keyframes show-bar-nine {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+        @keyframes show-bar-ten {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100.0%;
+            }
+        }
+
+        @keyframes fade-in-text {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
             @import url(https://fonts.googleapis.com/css?family=Open+Sans);
             @font-face {
                   font-family: '국립박물관문화재단클래식B';
@@ -375,8 +595,9 @@
           <cite>사단법인 대한영양사협회</cite>
         </div>
                
-        <div id="div-element" class='centerview'><!--검색에서 나온 음식들을(리스트형식) 클릭 시 해당 음식의 상세정보(리스트형식)를 표시할 div태그-->
-         음식 영양성분 표시 
+        <div id="div-element" class='centerview detailgraph'>
+          <!--검색에서 나온 음식들을(리스트형식) 클릭 시 해당 음식의 상세정보(리스트형식)를 표시할 div태그-->
+          음식 영양성분 표시
         </div>
 
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="leftbutton" viewBox="0 0 16 16"><!--뒤로 가기 버튼-->
@@ -392,10 +613,20 @@
             function follow(DESCKOR) {//생성된 음식 리스트를 클릭 시 실행되는 함수
                 $("#div-element").empty();//먼저 음식의 상세정보를 갱신해서 보여주기 위해 상세정보 창을 비운다.
                 var el = document.getElementById("div-element");// 변수 el에 상세정보를 표시할 창을 id로 가져온다.
-                el.innerHTML = DESCKOR.DESC_KOR + '<br>' + "1회제공량 (g): " + DESCKOR.SERVING_WT//상세정보 표시태그에 다음과 같은 상세정보를 .innerHTML을 이용해 넣어준다. 
+                el.innerHTML = '<h2 style="margin: 1px;">' + DESCKOR.DESC_KOR + '</h2>' + '<section class="bar-graph bar-graph-horizontal bar-graph-one">' + '<div class="bar-one">' + '<span class="year">1회제공량(g)</span>' + '<div class="bar" data-percentage=' + DESCKOR.SERVING_WT + '>' + '</div>' + '</div>'
+                + '<div class="bar-two">' + '<span class="year">열량(kcal)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT1 + '>' + '</div>' + '</div>'
+                + '<div class="bar-three">' + '<span class="year">탄수화물(g)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT2 + '>' + '</div>' + '</div>'
+                + '<div class="bar-four">' + '<span class="year">단백질(g)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT3 + '>' + '</div>' + '</div>'
+                + '<div class="bar-five">' + '<span class="year">지방(g)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT4 + '>' + '</div>' + '</div>'
+                + '<div class="bar-six">' + '<span class="year">당류(g)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT5 + '>' + '</div>' + '</div>'
+                + '<div class="bar-seven">' + '<span class="year">나트륨(mg) </span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT6 + '>' + '</div>' + '</div>'
+                + '<div class="bar-eight">' + '<span class="year">콜레스테롤(mg)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT7 + '>' + '</div>' + '</div>'
+                + '<div class="bar-nine">' + '<span class="year">포화지방산(g)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT8 + '>' + '</div>' + '</div>'
+                + '<div class="bar-ten">' + '<span class="year">트랜스지방산(g)</span>' + '<div class="bar" data-percentage=' + DESCKOR.NUTR_CONT9 + '>' + '</div>' + '</div>' + '</section>';
+                /*DESCKOR.DESC_KOR + '<br>' + "1회제공량 (g): " + DESCKOR.SERVING_WT//상세정보 표시태그에 다음과 같은 상세정보를 .innerHTML을 이용해 넣어준다. 
                 + '<br>' + "열량 (kcal): " + DESCKOR.NUTR_CONT1 + '<br>' + "탄수화물 (g): " + DESCKOR.NUTR_CONT2 + '<br>' + "단백질 (g) " + DESCKOR.NUTR_CONT3
                 + '<br>' + "지방 (g): " + DESCKOR.NUTR_CONT4 + '<br>' + "당류 (g): " + DESCKOR.NUTR_CONT5 + '<br>' + "나트륨 (mg): " + DESCKOR.NUTR_CONT6 + '<br>' + "콜레스테롤 (mg): " + DESCKOR.NUTR_CONT7 
-                + '<br>' + "포화지방산 (g): " + DESCKOR.NUTR_CONT8 + '<br>' + "트랜스지방산 (g): "  + DESCKOR.NUTR_CONT9;
+                + '<br>' + "포화지방산 (g): " + DESCKOR.NUTR_CONT8 + '<br>' + "트랜스지방산 (g): "  + DESCKOR.NUTR_CONT9;*/
             }
             $(document).ready(function () {//dom트리가 모두 형성된 후 실행되는 함수->검색 기능 구현
                 $("#search").click(function () {//검색 버튼을 id값(search)으로 가져오고 해당 버튼이 눌러졌을 때 함수가 실행되게 함(검색창의 값을 id로 가져와 읽고 해당 값에 해당하는 내용(음식)을 오픈 API에서 가져옴)
@@ -405,7 +636,8 @@
                     var val1 = $("#foodName").val();//검색창에 입력된 값 읽기
                     queryParams += '&' + encodeURIComponent('desc_kor') + '=' + encodeURIComponent(val1); /*음식검색*/
                     queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
-                    
+                    queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('100');
+
                     $.ajax({//ajax로 비동식으로 작동하게 한다.
                         method: "GET",
                         url: exurl + queryParams,
