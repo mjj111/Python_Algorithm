@@ -23,6 +23,7 @@ print("\n")
 
 arr = {"a":[123,0], 'b':[122,3], 'c':[1234,2]}
 print(arr['a'])
+print(arr.get('asd',0)) # .get(key,default)
 print(arr.items())
 
 arr1 = sorted(arr.items(),key = lambda x :x[2])
