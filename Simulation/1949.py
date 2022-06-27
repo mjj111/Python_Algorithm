@@ -23,4 +23,3 @@ for _ in range(n-1):
 
 dfs(1)
 print(max(dp[1][1], dp[1][0]))
-출처: https://cotak.tistory.com/29 [TaxFree:티스토리]
