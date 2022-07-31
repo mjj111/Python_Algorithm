@@ -10,3 +10,12 @@ i = jj
 # hi 가 10번 출력된다 -> range()안에 숫자만큼 움직이며 최종적으로 i는 9가 된다. 
 #for i in range(10):
 #    print("hi")
+
+a = [1,2,3]
+#얕은 복사
+b = a 
+#깊은 복사
+b = list(a)
+b.append(1)
+print(a)
+print(b)
