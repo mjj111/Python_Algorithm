@@ -17,3 +17,4 @@ def solution(w,h):
         else:
             answer += 1 #같으면 1개
     return w*h - answer
+
