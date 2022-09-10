@@ -558,3 +558,112 @@ print(dq.popleft())  # pop_front
 
 dq.rotate()
 print(list(dq))
+
+
+
+
+#                                                    16.합집합
+lst1 = ['A', 'B', 'C', 'D']
+lst2 = ['C', 'D', 'E', 'F']
+union = list(set(lst1) | set(lst2))
+print( union ) # ['C', 'F', 'A', 'E', 'B', 'D']
+union = list(set().union(lst1,lst2))
+print( union ) # ['C', 'F', 'A', 'E', 'B', 'D']
+
+
+
+#                                                      17. 교집합
+lst1 = ['A', 'B', 'C', 'D']
+lst2 = ['C', 'D', 'E', 'F']
+intersection = list(set(lst1) & set(lst2))
+print( intersection ) # ['C', 'D']
+intersection = list(set(lst1).intersection(lst2))
+print( intersection ) # ['C', 'D']
+
+
+
+#                                                      18. 차집합
+lst1 = ['A', 'B', 'C', 'D']
+lst2 = ['C', 'D', 'E', 'F']
+complement = list(set(lst1) - set(lst2))
+print( complement ) # ['B', 'A']
+complement = list(set(lst1).difference(lst2))
+print( complement ) # ['A', 'B']
+
+
+
+
+#                                                      19. 대칭 차집합
+lst1 = ['A', 'B', 'C', 'D']
+lst2 = ['C', 'D', 'E', 'F']
+sym_diff = list(set(lst1) ^ set(lst2))
+print( sym_diff ) # ['F', 'E', 'A', 'B']
+sym_diff = list(set(lst1).symmetric_difference(lst2))
+print( sym_diff ) # ['F', 'E', 'A', 'B']
+
+
+
+
+#                                                      20. 순열 
+from itertools import permutations
+
+n, m = map(int, input().split())
+items = []
+for i in range(1, n+1):
+    items.append(i)
+
+for i in permutations(items, m):
+    if len(i) == 1:
+        print(i[0])
+    else:
+        print(*i, sep=' ')
+        
+        
+
+
+
+        
+#                                                      21. 조합
+from itertools import combinations
+
+n, m = map(int, input().split())
+items = []
+for i in range(1, n+1):
+    items.append(i)
+
+for i in combinations(items, m):
+    if len(i) == 1:
+        print(i[0])
+    else:
+        print(*i, sep=' ')
+        
+        
+        
+        
+        
+        
+ #                                                      22. 중복순열
+from itertools import product
+
+n, m = map(int, input().split())
+items= []
+for i in range(1, n+1):
+    items.append(i)
+
+for i in product(items, repeat=m):
+    print(*i, end='\n')
+
+
+
+
+ #                                                      23. 중복조합
+from itertools import combinations_with_replacement
+
+n, m = map(int, input().split())
+items = []
+for i in range(1, n+1):
+    items.append(i)
+
+for i in combinations_with_replacement(items, m):
+    print(*i, sep=' ')
+    
