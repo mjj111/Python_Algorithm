@@ -284,11 +284,6 @@ print(c)
 
 nlist = [int(x) for x in ['10', '20', '30']]
 print(sum(nlist))
-enumerate()
-var = ['a', 'b', 'c']
-
-for i, val in enumerate(var):
-    print(i, val)
 
 
 
@@ -308,10 +303,6 @@ for i in a:  # 리스트를 원소를 2번꺼내 사용
 
 for i in range(len(a)):  # 길이만큼 사용
     for j in range(len(a[i])):
-        print(a[i][j])
-
-for i, x in enumerate(a):
-    for j, y in enumerate(x):
         print(a[i][j])
 
 for i, x in enumerate(a):
@@ -507,6 +498,8 @@ print([3, 3, 3, 2, 2, 1].count(3))  # 3
 
 x = {'base': 1, 'dos': 20}
 print(x['base'])
+x["hi"] = 23
+print(x["hi"])
 
 # 피보나치 + dp for문 | dp 재귀
 
@@ -516,8 +509,8 @@ d = {}
 def dp(n):
     if(n <= 1):
         return n
-    if((n) in d):
-        return d[(n)]
+    if(n in d):
+        return d[n]
     d[n] = dp(n-1)+dp(n-2)
     return d[n]
 
