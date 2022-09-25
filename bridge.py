@@ -27,7 +27,8 @@ num2_f = client_socket.recv(1024)
 to_PORT = 0
 data = 0
 
-
+client_socket.close()
+print("닫음")
 if equation == "+" or equation == "-":
     to_PORT = 9992
     bridge_socket.connect((HOST, to_PORT))
