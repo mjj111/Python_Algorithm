@@ -1,0 +1,17 @@
+from re import L
+def longestPalindrom(self, s: str)-> str:
+    #팰린드롬 판별 및 투포인터 확장
+    def expand(left :int, right :int)->str:
+        while left>=0 and right<=len(s) and s[left] == s[right]:
+            left -=1
+            right +=1
+        return s[left + 1 : right]
+    
+    #예외 처리
+    if len(s) <2 or s == s[::-1]:
+        return s
+    result =''
+    
+    #슬라이싱 윈도우 우측으로 이동 
+    for i in range(len(s)-1):
+        result = max(result,expand(i,i+1),expand(i+2),key = len)
